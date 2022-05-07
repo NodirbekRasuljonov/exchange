@@ -43,6 +43,8 @@ dependencies:
   flutter_svg: ^1.0.3
   flutter_svg_provider: ^1.0.3
   on_click: ^1.1.3
+  path_provider_extention: ^1.0.3
+  path_provider: ^2.0.9
 
 dev_dependencies:
   flutter_test:

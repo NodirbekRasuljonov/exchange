@@ -1,3 +1,4 @@
+import 'package:exchange/baseview/vase_view.dart';
 import 'package:exchange/core/constants/color_const.dart';
 import 'package:exchange/core/constants/size_const.dart';
 import 'package:exchange/core/extension/context_extension.dart';
@@ -10,7 +11,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return BaseView(viewModel: HomePage(), OnPageBuilder: (context, widget){
+      return CustomScrollView(
       slivers: [
         SliverAppBar(
           toolbarHeight: context.he * 0.4,
@@ -98,21 +100,31 @@ class HomePage extends StatelessWidget {
                             width: context.he * 0.15,
                             color: Colors.transparent,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text('Buy'),
                                     Text(
-                                    snapshot.data![index].nbuBuyPrice.toString(),
-                                  ),]
+                                      snapshot.data![index].nbuBuyPrice
+                                          .toString(),
+                                    ),
+                                  ],
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text('Sell'),
-                                    Text(snapshot.data![index].nbuCellPrice==null?'0':snapshot.data![index].nbuCellPrice.toString())
+                                    Text(
+                                      snapshot.data![index].nbuCellPrice == null
+                                          ? '0'
+                                          : snapshot.data![index].nbuCellPrice
+                                              .toString(),
+                                    )
                                   ],
                                 ),
                               ],
@@ -135,6 +147,8 @@ class HomePage extends StatelessWidget {
           ),
         )
       ],
+    );
+    },
     );
   }
 }
